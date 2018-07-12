@@ -22,9 +22,9 @@ import (
 
 	cm_logger "github.com/helm/chartmuseum/pkg/chartmuseum/logger"
 
+	"github.com/gin-contrib/size"
 	"github.com/gin-gonic/gin"
 	"github.com/zsais/go-gin-prometheus"
-	"github.com/gin-contrib/size"
 )
 
 type (
@@ -39,6 +39,7 @@ type (
 		BasicAuthHeader string
 		AnonymousGet    bool
 		Depth           int
+		ReadyOnly       bool
 	}
 
 	// RouterOptions are options for constructing a Router
@@ -54,6 +55,7 @@ type (
 		AnonymousGet  bool
 		Depth         int
 		MaxUploadSize int
+		ReadOnly      bool
 	}
 
 	// Route represents an application route
@@ -96,6 +98,7 @@ func NewRouter(options RouterOptions) *Router {
 		ContextPath:  options.ContextPath,
 		AnonymousGet: options.AnonymousGet,
 		Depth:        options.Depth,
+		ReadyOnly:    options.ReadOnly,
 	}
 
 	if options.Username != "" && options.Password != "" {

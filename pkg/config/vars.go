@@ -157,6 +157,15 @@ var configVars = map[string]configVar{
 			EnvVar: "AUTH_ANONYMOUS_GET",
 		},
 	},
+	"readonly": {
+		Type:    boolType,
+		Default: false,
+		CLIFlag: cli.BoolFlag{
+			Name:   "readonly",
+			Usage:  "make repo read only",
+			EnvVar: "READ_ONLY",
+		},
+	},
 	"tls.cert": {
 		Type:    stringType,
 		Default: "",

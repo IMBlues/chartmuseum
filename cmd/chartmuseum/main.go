@@ -82,6 +82,7 @@ func cliHandler(c *cli.Context) {
 		EnableMetrics:          !conf.GetBool("disablemetrics"),
 		AnonymousGet:           conf.GetBool("authanonymousget"),
 		GenIndex:               conf.GetBool("genindex"),
+		ReadOnly:               conf.GetBool("readonly"),
 		MaxStorageObjects:      conf.GetInt("maxstorageobjects"),
 		IndexLimit:             conf.GetInt("indexlimit"),
 		Depth:                  conf.GetInt("depth"),
