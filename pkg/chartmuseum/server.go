@@ -47,6 +47,7 @@ type (
 		EnableMetrics          bool
 		AnonymousGet           bool
 		GenIndex               bool
+		ReadOnly               bool
 		MaxStorageObjects      int
 		IndexLimit             int
 		Depth                  int
@@ -85,6 +86,7 @@ func NewServer(options ServerOptions) (Server, error) {
 		AnonymousGet:  options.AnonymousGet,
 		Depth:         options.Depth,
 		MaxUploadSize: options.MaxUploadSize,
+		ReadOnly:      options.ReadOnly,
 	})
 
 	server, err := mt.NewMultiTenantServer(mt.MultiTenantServerOptions{
